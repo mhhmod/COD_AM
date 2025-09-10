@@ -747,18 +747,25 @@
     <script>
         // Auto-focus on first input
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('email').focus();
+            const emailInput = document.getElementById('email');
+            if (emailInput) {
+                emailInput.focus();
+            }
         });
 
         // Smooth scroll to checkout
         function scrollToCheckout() {
-            document.getElementById('checkout').scrollIntoView({
-                behavior: 'smooth'
-            });
+            const checkoutSection = document.getElementById('checkout');
+            if (checkoutSection) {
+                checkoutSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         }
 
-        // Form validation
+        // Form validation with better error handling
         function validateForm() {
+            console.log('Starting form validation...');
             const requiredFields = ['email', 'firstName', 'lastName', 'phone', 'firstLine', 'buildingNumber'];
             let isValid = true;
 
@@ -766,8 +773,13 @@
             requiredFields.forEach(field => {
                 const input = document.getElementById(field);
                 const error = document.getElementById(field + '-error');
-                input.classList.remove('error');
-                error.textContent = '';
+                
+                if (input) {
+                    input.classList.remove('error');
+                    if (error) {
+                        error.textContent = '';
+                    }
+                }
             });
 
             // Validate required fields
@@ -775,10 +787,18 @@
                 const input = document.getElementById(field);
                 const error = document.getElementById(field + '-error');
                 
+                if (!input) {
+                    console.error('Field not found:', field);
+                    return;
+                }
+                
                 if (!input.value.trim()) {
                     input.classList.add('error');
-                    error.textContent = 'This field is required';
+                    if (error) {
+                        error.textContent = 'This field is required';
+                    }
                     isValid = false;
+                    console.log('Field invalid:', field);
                 }
             });
 
@@ -787,9 +807,11 @@
             const emailError = document.getElementById('email-error');
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             
-            if (emailInput.value.trim() && !emailRegex.test(emailInput.value)) {
+            if (emailInput && emailInput.value.trim() && !emailRegex.test(emailInput.value)) {
                 emailInput.classList.add('error');
-                emailError.textContent = 'Please enter a valid email address';
+                if (emailError) {
+                    emailError.textContent = 'Please enter a valid email address';
+                }
                 isValid = false;
             }
 
@@ -798,12 +820,15 @@
             const phoneError = document.getElementById('phone-error');
             const phoneRegex = /^01[0-9]{9}$/;
             
-            if (phoneInput.value.trim() && !phoneRegex.test(phoneInput.value.replace(/\s/g, ''))) {
+            if (phoneInput && phoneInput.value.trim() && !phoneRegex.test(phoneInput.value.replace(/\s/g, ''))) {
                 phoneInput.classList.add('error');
-                phoneError.textContent = 'Please enter a valid Egyptian mobile number (01xxxxxxxxx)';
+                if (phoneError) {
+                    phoneError.textContent = 'Please enter a valid Egyptian mobile number (01xxxxxxxxx)';
+                }
                 isValid = false;
             }
 
+            console.log('Form validation result:', isValid);
             return isValid;
         }
 
@@ -825,8 +850,8 @@
                 const newSubtotal = 1500 - discount;
                 const newTotal = newSubtotal + 50 + 20; // shipping + COD fee
                 
-                subtotalElement.textContent = newSubtotal + ' EGP';
-                totalElement.textContent = newTotal + ' EGP';
+                if (subtotalElement) subtotalElement.textContent = newSubtotal + ' EGP';
+                if (totalElement) totalElement.textContent = newTotal + ' EGP';
                 
                 alert('Discount applied successfully!');
             } else if (discountCode) {
@@ -839,31 +864,47 @@
             return Math.floor(10000000 + Math.random() * 90000000).toString();
         }
 
-        // Submit order
+        // Submit order with improved error handling
         async function submitOrder() {
-            if (!validateForm()) {
+            console.log('Submit order clicked!');
+            
+            // Simple validation first - just check if required fields have values
+            const email = document.getElementById('email').value.trim();
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const firstLine = document.getElementById('firstLine').value.trim();
+            const buildingNumber = document.getElementById('buildingNumber').value.trim();
+
+            if (!email || !firstName || !lastName || !phone || !firstLine || !buildingNumber) {
+                alert('Please fill in all required fields marked with *');
                 return;
             }
 
             const submitButton = document.querySelector('.complete-order-btn');
-            submitButton.disabled = true;
-            submitButton.innerHTML = '<span class="spinner"></span>Processing...';
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<span class="spinner"></span>Processing...';
+            }
 
             // Collect form data
             const formData = {
-                firstName: document.getElementById('firstName').value.trim(),
-                lastName: document.getElementById('lastName').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                firstLine: document.getElementById('firstLine').value.trim(),
+                firstName: firstName,
+                lastName: lastName,
+                phone: phone,
+                email: email,
+                firstLine: firstLine,
                 secondLine: document.getElementById('secondLine').value.trim(),
-                buildingNumber: document.getElementById('buildingNumber').value.trim(),
+                buildingNumber: buildingNumber,
                 floor: document.getElementById('floor').value.trim(),
                 apartment: document.getElementById('apartment').value.trim()
             };
 
+            console.log('Form data collected:', formData);
+
             // Generate business reference
             const businessReference = generateReference();
+            console.log('Business reference:', businessReference);
 
             // Construct JSON payload
             const payload = {
@@ -918,7 +959,10 @@
                 webhookUrl: "https://www.google.com/"
             };
 
+            console.log('Payload constructed:', payload);
+
             try {
+                console.log('Attempting to post to webhook...');
                 // Post to webhook
                 const response = await fetch('https://example.com/webhook', {
                     method: 'POST',
@@ -928,34 +972,53 @@
                     body: JSON.stringify(payload)
                 });
 
+                console.log('Webhook response:', response);
+
                 // Show success modal regardless of response (as webhook might be demo)
-                document.getElementById('orderReference').textContent = businessReference;
-                document.getElementById('successModal').style.display = 'flex';
+                const orderRef = document.getElementById('orderReference');
+                const modal = document.getElementById('successModal');
+                
+                if (orderRef) orderRef.textContent = businessReference;
+                if (modal) modal.style.display = 'flex';
                 
                 // Update progress to complete
                 const completeStep = document.querySelector('[data-testid="step-complete"]');
-                completeStep.classList.remove('inactive');
+                if (completeStep) completeStep.classList.remove('inactive');
+
+                console.log('Order submitted successfully!');
 
             } catch (error) {
                 console.error('Error submitting order:', error);
                 
                 // Show success modal anyway for demo purposes
-                document.getElementById('orderReference').textContent = businessReference;
-                document.getElementById('successModal').style.display = 'flex';
+                const orderRef = document.getElementById('orderReference');
+                const modal = document.getElementById('successModal');
+                
+                if (orderRef) orderRef.textContent = businessReference;
+                if (modal) modal.style.display = 'flex';
                 
                 // Update progress to complete
                 const completeStep = document.querySelector('[data-testid="step-complete"]');
-                completeStep.classList.remove('inactive');
+                if (completeStep) completeStep.classList.remove('inactive');
+
+                console.log('Showing success modal despite error');
             }
 
             // Reset button
-            submitButton.disabled = false;
-            submitButton.innerHTML = 'Complete Order';
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Complete Order';
+            }
+
+            console.log('Submit order function completed');
         }
 
         // Close modal
         function closeModal() {
-            document.getElementById('successModal').style.display = 'none';
+            const modal = document.getElementById('successModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
         }
 
         // Close modal on outside click
@@ -965,33 +1028,6 @@
                 closeModal();
             }
         }
-
-        // Real-time form validation
-        document.addEventListener('DOMContentLoaded', function() {
-            const inputs = document.querySelectorAll('.form-control[required]');
-            
-            inputs.forEach(input => {
-                input.addEventListener('blur', function() {
-                    const error = document.getElementById(this.id + '-error');
-                    
-                    if (!this.value.trim()) {
-                        this.classList.add('error');
-                        error.textContent = 'This field is required';
-                    } else {
-                        this.classList.remove('error');
-                        error.textContent = '';
-                    }
-                });
-                
-                input.addEventListener('input', function() {
-                    if (this.classList.contains('error') && this.value.trim()) {
-                        this.classList.remove('error');
-                        const error = document.getElementById(this.id + '-error');
-                        error.textContent = '';
-                    }
-                });
-            });
-        });
     </script>
 </body>
 </html>
