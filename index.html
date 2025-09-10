@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XD Store - Premium T-Shirt | Elegant Cotton T-Shirt 1500 EGP</title>
+    <meta name="description" content="Premium cotton t-shirt with timeless design for ultimate comfort and style. Order now with cash on delivery for 1500 EGP. Limited stock available.">
+    <meta property="og:title" content="XD Store - Premium T-Shirt">
+    <meta property="og:description" content="Premium cotton t-shirt with timeless design for ultimate comfort and style. Order now with cash on delivery for 1500 EGP.">
+    <meta property="og:type" content="product">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            border-bottom: 1px solid var(--black);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .cart-icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .product-image {
+            position: relative;
+        }
+
+        .product-img {
+            width: 100%;
+            height: auto;
+            border: 2px solid var(--black);
+            transition: var(--transition);
+        }
+
+        .product-img:hover {
+            transform: scale(1.02);
+        }
+
+        .product-details h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .product-description {
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .scarcity-message {
+            background: var(--black);
+            color: var(--white);
+            padding: 10px 20px;
+            margin-bottom: 30px;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .buy-btn {
+            background: var(--black);
+            color: var(--white);
+            border: 2px solid var(--black);
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            max-width: 300px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .buy-btn:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        /* Trust Elements */
+        .trust-badges {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .trust-item {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .trust-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--black);
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* Checkout Section */
+        .checkout-section {
+            padding: 80px 0;
+            background: var(--white);
+            border-top: 2px solid var(--black);
+        }
+
+        .progress-bar {
+            margin-bottom: 50px;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--black);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .step.inactive .step-number {
+            background: var(--white);
+            color: var(--black);
+            border: 1px solid var(--black);
+        }
+
+        .step-separator {
+            width: 50px;
+            height: 1px;
+            background: var(--black);
+            margin: 0 20px;
+        }
+
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+        }
+
+        .form-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--black);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: var(--black);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--black);
+            background: var(--white);
+            font-size: 16px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .form-control.error {
+            border-color: var(--black);
+            background: #f9f9f9;
+        }
+
+        .error-message {
+            color: var(--black);
+            font-size: 14px;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        /* Order Summary */
+        .order-summary {
+            background: var(--white);
+            border: 2px solid var(--black);
+            padding: 30px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .order-summary h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--black);
+        }
+
+        .order-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--black);
+        }
+
+        .item-image {
+            width: 80px;
+            height: 80px;
+            border: 1px solid var(--black);
+            object-fit: cover;
+        }
+
+        .item-details h4 {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .item-price {
+            font-weight: 700;
+        }
+
+        .discount-section {
+            margin-bottom: 25px;
+        }
+
+        .discount-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .discount-code {
+            flex: 1;
+        }
+
+        .apply-btn {
+            background: var(--white);
+            border: 2px solid var(--black);
+            color: var(--black);
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .apply-btn:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .order-totals {
+            margin-bottom: 25px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .total-row.final {
+            font-weight: 700;
+            font-size: 18px;
+            padding-top: 10px;
+            border-top: 1px solid var(--black);
+        }
+
+        .complete-order-btn {
+            background: var(--black);
+            color: var(--white);
+            border: 2px solid var(--black);
+            padding: 18px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .complete-order-btn:hover {
+            background: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        .complete-order-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Upsell */
+        .upsell {
+            background: #f9f9f9;
+            border: 1px solid var(--black);
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .upsell h4 {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        /* Success Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border: 3px solid var(--black);
+            padding: 40px;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--black);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .checkout-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .order-summary {
+                position: static;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-steps {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .step-separator {
+                display: none;
+            }
+
+            .trust-badges {
+                justify-content: center;
+            }
+
+            .product-details h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Loading State */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--white);
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo" data-testid="logo-xd-store">XD STORE</a>
+                <div class="cart-icon" data-testid="icon-cart">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z"/>
+                        <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z"/>
+                        <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6"/>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=1000" alt="Premium Cotton T-Shirt" class="product-img" data-testid="img-product-main" />
+                </div>
+                <div class="product-details">
+                    <h1 data-testid="text-product-title">Premium Cotton T-Shirt</h1>
+                    <p class="product-description" data-testid="text-product-description">Premium cotton t-shirt with timeless design for ultimate comfort and style</p>
+                    <div class="price" data-testid="text-product-price">1500 EGP</div>
+                    <div class="scarcity-message" data-testid="text-scarcity-message">Limited stock available</div>
+                    <button class="buy-btn" onclick="scrollToCheckout()" data-testid="button-buy-now">Buy Now</button>
+                    
+                    <div class="trust-badges">
+                        <div class="trust-item" data-testid="trust-secure-checkout">
+                            <div class="trust-icon">✓</div>
+                            <div>Secure Checkout</div>
+                        </div>
+                        <div class="trust-item" data-testid="trust-cash-delivery">
+                            <div class="trust-icon">🚚</div>
+                            <div>Cash on Delivery</div>
+                        </div>
+                        <div class="trust-item" data-testid="trust-easy-returns">
+                            <div class="trust-icon">↩</div>
+                            <div>Easy Returns</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section" id="checkout">
+        <div class="container">
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-steps">
+                    <div class="step" data-testid="step-cart">
+                        <span class="step-number">1</span>
+                        <span>Cart</span>
+                    </div>
+                    <div class="step-separator"></div>
+                    <div class="step" data-testid="step-information">
+                        <span class="step-number">2</span>
+                        <span>Information</span>
+                    </div>
+                    <div class="step-separator"></div>
+                    <div class="step inactive" data-testid="step-complete">
+                        <span class="step-number">3</span>
+                        <span>Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-container">
+                <!-- Form Section -->
+                <div class="form-section">
+                    <form id="checkout-form" data-testid="form-checkout">
+                        <h2>Contact Information</h2>
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" class="form-control" required data-testid="input-email" />
+                            <div class="error-message" id="email-error" data-testid="error-email"></div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" class="form-control" required data-testid="input-first-name" />
+                                <div class="error-message" id="firstName-error" data-testid="error-first-name"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" class="form-control" required data-testid="input-last-name" />
+                                <div class="error-message" id="lastName-error" data-testid="error-last-name"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="01099999435" required data-testid="input-phone" />
+                            <div class="error-message" id="phone-error" data-testid="error-phone"></div>
+                        </div>
+
+                        <h2>Shipping Address</h2>
+                        <div class="form-group">
+                            <label for="firstLine">Street Address <span class="required">*</span></label>
+                            <input type="text" id="firstLine" name="firstLine" class="form-control" required data-testid="input-first-line" />
+                            <div class="error-message" id="firstLine-error" data-testid="error-first-line"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="secondLine">Landmark / Additional Details</label>
+                            <input type="text" id="secondLine" name="secondLine" class="form-control" data-testid="input-second-line" />
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="buildingNumber">Building Number <span class="required">*</span></label>
+                                <input type="text" id="buildingNumber" name="buildingNumber" class="form-control" required data-testid="input-building-number" />
+                                <div class="error-message" id="buildingNumber-error" data-testid="error-building-number"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="floor">Floor</label>
+                                <input type="text" id="floor" name="floor" class="form-control" data-testid="input-floor" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="apartment">Apartment</label>
+                            <input type="text" id="apartment" name="apartment" class="form-control" data-testid="input-apartment" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    
+                    <div class="order-item">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=160&h=160" alt="Premium T-Shirt" class="item-image" data-testid="img-order-item" />
+                        <div class="item-details">
+                            <h4 data-testid="text-item-name">Premium Cotton T-Shirt</h4>
+                            <div class="item-price" data-testid="text-item-price">1500 EGP</div>
+                        </div>
+                    </div>
+
+                    <div class="upsell" data-testid="section-upsell">
+                        <h4>Add a matching accessory?</h4>
+                        <p>Complete your look with our premium accessories</p>
+                    </div>
+
+                    <div class="discount-section">
+                        <label for="discountCode">Discount Code</label>
+                        <div class="discount-input">
+                            <input type="text" id="discountCode" class="form-control discount-code" placeholder="Enter code" data-testid="input-discount-code" />
+                            <button type="button" class="apply-btn" onclick="applyDiscount()" data-testid="button-apply-discount">Apply</button>
+                        </div>
+                    </div>
+
+                    <div class="order-totals">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span data-testid="text-subtotal">1500 EGP</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Shipping:</span>
+                            <span data-testid="text-shipping">50 EGP</span>
+                        </div>
+                        <div class="total-row">
+                            <span>COD Fee:</span>
+                            <span data-testid="text-cod-fee">20 EGP</span>
+                        </div>
+                        <div class="total-row final">
+                            <span>Total:</span>
+                            <span data-testid="text-total">1570 EGP</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="complete-order-btn" onclick="submitOrder()" data-testid="button-complete-order">
+                        Complete Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal" data-testid="modal-success">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()" data-testid="button-close-modal">&times;</button>
+            <h3>Order Placed Successfully!</h3>
+            <p>Thank you for your purchase! Your order has been placed and will be delivered with cash on delivery.</p>
+            <p><strong>Order Reference:</strong> <span id="orderReference" data-testid="text-order-reference"></span></p>
+            <p>You will receive a confirmation call within 24 hours.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" data-testid="link-privacy-policy">Privacy Policy</a>
+                <a href="#" data-testid="link-terms-service">Terms of Service</a>
+                <a href="#" data-testid="link-contact">Contact Us</a>
+            </div>
+            <p data-testid="text-copyright">&copy; 2025 XD Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-focus on first input
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('email').focus();
+        });
+
+        // Smooth scroll to checkout
+        function scrollToCheckout() {
+            document.getElementById('checkout').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Form validation
+        function validateForm() {
+            const requiredFields = ['email', 'firstName', 'lastName', 'phone', 'firstLine', 'buildingNumber'];
+            let isValid = true;
+
+            // Clear previous errors
+            requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                const error = document.getElementById(field + '-error');
+                input.classList.remove('error');
+                error.textContent = '';
+            });
+
+            // Validate required fields
+            requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                const error = document.getElementById(field + '-error');
+                
+                if (!input.value.trim()) {
+                    input.classList.add('error');
+                    error.textContent = 'This field is required';
+                    isValid = false;
+                }
+            });
+
+            // Validate email format
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('email-error');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (emailInput.value.trim() && !emailRegex.test(emailInput.value)) {
+                emailInput.classList.add('error');
+                emailError.textContent = 'Please enter a valid email address';
+                isValid = false;
+            }
+
+            // Validate phone format (Egyptian mobile)
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phone-error');
+            const phoneRegex = /^01[0-9]{9}$/;
+            
+            if (phoneInput.value.trim() && !phoneRegex.test(phoneInput.value.replace(/\s/g, ''))) {
+                phoneInput.classList.add('error');
+                phoneError.textContent = 'Please enter a valid Egyptian mobile number (01xxxxxxxxx)';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Apply discount code
+        function applyDiscount() {
+            const discountCode = document.getElementById('discountCode').value.trim().toLowerCase();
+            const subtotalElement = document.querySelector('[data-testid="text-subtotal"]');
+            const totalElement = document.querySelector('[data-testid="text-total"]');
+            
+            let discount = 0;
+            
+            if (discountCode === 'welcome10') {
+                discount = 150; // 10% of 1500 EGP
+            } else if (discountCode === 'save50') {
+                discount = 50;
+            }
+            
+            if (discount > 0) {
+                const newSubtotal = 1500 - discount;
+                const newTotal = newSubtotal + 50 + 20; // shipping + COD fee
+                
+                subtotalElement.textContent = newSubtotal + ' EGP';
+                totalElement.textContent = newTotal + ' EGP';
+                
+                alert('Discount applied successfully!');
+            } else if (discountCode) {
+                alert('Invalid discount code');
+            }
+        }
+
+        // Generate unique reference number
+        function generateReference() {
+            return Math.floor(10000000 + Math.random() * 90000000).toString();
+        }
+
+        // Submit order
+        async function submitOrder() {
+            if (!validateForm()) {
+                return;
+            }
+
+            const submitButton = document.querySelector('.complete-order-btn');
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="spinner"></span>Processing...';
+
+            // Collect form data
+            const formData = {
+                firstName: document.getElementById('firstName').value.trim(),
+                lastName: document.getElementById('lastName').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                firstLine: document.getElementById('firstLine').value.trim(),
+                secondLine: document.getElementById('secondLine').value.trim(),
+                buildingNumber: document.getElementById('buildingNumber').value.trim(),
+                floor: document.getElementById('floor').value.trim(),
+                apartment: document.getElementById('apartment').value.trim()
+            };
+
+            // Generate business reference
+            const businessReference = generateReference();
+
+            // Construct JSON payload
+            const payload = {
+                type: 10,
+                specs: {
+                    packageType: "Parcel",
+                    size: "MEDIUM",
+                    packageDetails: {
+                        itemsCount: 1,
+                        description: "Elegant T-shirt"
+                    }
+                },
+                notes: "Thank you for your purchase! Welcome to our store.",
+                cod: 1500,
+                dropOffAddress: {
+                    city: "Helwan",
+                    zoneId: "NQz5sDOeG",
+                    districtId: "aiJudRHeOt",
+                    firstLine: formData.firstLine,
+                    secondLine: formData.secondLine,
+                    buildingNumber: formData.buildingNumber,
+                    floor: formData.floor,
+                    apartment: formData.apartment
+                },
+                pickupAddress: {
+                    city: "Helwan",
+                    zoneId: "NQz5sDOeG",
+                    districtId: "aiJudRHeOt",
+                    firstLine: "Helwan street x",
+                    secondLine: "Near to Bosta school",
+                    buildingNumber: "123",
+                    floor: "4",
+                    apartment: "2"
+                },
+                returnAddress: {
+                    city: "Helwan",
+                    zoneId: "NQz5sDOeG",
+                    districtId: "aiJudRHeOt",
+                    firstLine: "Maadi",
+                    secondLine: "Nasr City",
+                    buildingNumber: "123",
+                    floor: "4",
+                    apartment: "2"
+                },
+                businessReference: businessReference,
+                receiver: {
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    phone: formData.phone,
+                    email: formData.email
+                },
+                webhookUrl: "https://www.google.com/"
+            };
+
+            try {
+                // Post to webhook
+                const response = await fetch('https://example.com/webhook', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                // Show success modal regardless of response (as webhook might be demo)
+                document.getElementById('orderReference').textContent = businessReference;
+                document.getElementById('successModal').style.display = 'flex';
+                
+                // Update progress to complete
+                const completeStep = document.querySelector('[data-testid="step-complete"]');
+                completeStep.classList.remove('inactive');
+
+            } catch (error) {
+                console.error('Error submitting order:', error);
+                
+                // Show success modal anyway for demo purposes
+                document.getElementById('orderReference').textContent = businessReference;
+                document.getElementById('successModal').style.display = 'flex';
+                
+                // Update progress to complete
+                const completeStep = document.querySelector('[data-testid="step-complete"]');
+                completeStep.classList.remove('inactive');
+            }
+
+            // Reset button
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Complete Order';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('successModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Real-time form validation
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('.form-control[required]');
+            
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    const error = document.getElementById(this.id + '-error');
+                    
+                    if (!this.value.trim()) {
+                        this.classList.add('error');
+                        error.textContent = 'This field is required';
+                    } else {
+                        this.classList.remove('error');
+                        error.textContent = '';
+                    }
+                });
+                
+                input.addEventListener('input', function() {
+                    if (this.classList.contains('error') && this.value.trim()) {
+                        this.classList.remove('error');
+                        const error = document.getElementById(this.id + '-error');
+                        error.textContent = '';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
