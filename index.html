@@ -11,6 +11,82 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Chat Widget Custom CSS Variables -->
+    <style>
+        :root {
+            --chat--color-primary: #1a1a1a;
+            --chat--color-primary-shade-50: #2a2a2a;
+            --chat--color-primary-shade-100: #3a3a3a;
+            --chat--color-secondary: #4a4a4a;
+            --chat--color-secondary-shade-50: #5a5a5a;
+            --chat--color-white: #ffffff;
+            --chat--color-light: #f8f9fa;
+            --chat--color-light-shade-50: #e9ecef;
+            --chat--color-light-shade-100: #dee2e6;
+            --chat--color-medium: #adb5bd;
+            --chat--color-dark: #212529;
+            --chat--color-disabled: #6c757d;
+            --chat--color-typing: #495057;
+
+            --chat--spacing: 1rem;
+            --chat--border-radius: 0.25rem;
+            --chat--transition-duration: 0.15s;
+
+            --chat--window--width: 400px;
+            --chat--window--height: 600px;
+
+            --chat--header-height: auto;
+            --chat--header--padding: var(--chat--spacing);
+            --chat--header--background: var(--chat--color-dark);
+            --chat--header--color: var(--chat--color-white);
+            --chat--header--border-top: none;
+            --chat--header--border-bottom: 1px solid #343a40;
+            --chat--heading--font-size: 2em;
+            --chat--subtitle--font-size: inherit;
+            --chat--subtitle--line-height: 1.8;
+
+            --chat--textarea--height: 50px;
+
+            --chat--message--font-size: 1rem;
+            --chat--message--padding: var(--chat--spacing);
+            --chat--message--border-radius: var(--chat--border-radius);
+            --chat--message-line-height: 1.8;
+            --chat--message--bot--background: var(--chat--color-white);
+            --chat--message--bot--color: var(--chat--color-dark);
+            --chat--message--bot--border: 1px solid #e9ecef;
+            --chat--message--user--background: var(--chat--color-primary);
+            --chat--message--user--color: var(--chat--color-white);
+            --chat--message--user--border: none;
+            --chat--message--pre--background: rgba(0, 0, 0, 0.05);
+
+            --chat--toggle--background: var(--chat--color-primary);
+            --chat--toggle--hover--background: var(--chat--color-primary-shade-50);
+            --chat--toggle--active--background: var(--chat--color-primary-shade-100);
+            --chat--toggle--color: var(--chat--color-white);
+            --chat--toggle--size: 64px;
+        }
+    </style>
+    
+    <!-- Chat Widget CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    
+    <!-- Force Chat Widget Colors -->
+    <style>
+        .n8n-chat-widget__toggle {
+            background: #1a1a1a !important;
+        }
+        .n8n-chat-widget__toggle:hover {
+            background: #2a2a2a !important;
+        }
+        .n8n-chat-widget__toggle:active {
+            background: #3a3a3a !important;
+        }
+        .n8n-chat-widget__toggle svg {
+            color: #ffffff !important;
+        }
+    </style>
+    
     <style>
         * {
             margin: 0;
@@ -18,7 +94,7 @@
             box-sizing: border-box;
         }
 
-        :root1 {
+        :root {
             --black: #000000;
             --white: #ffffff;
             --transition: all 0.3s ease;
