@@ -1030,26 +1030,75 @@
             }
         }
     </script>
-    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-    <script type="module">
-      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+ <!-- Place this at the end of your HTML body -->
+<script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  
+    // Initialise the chat widget without showing the overlay
+    createChat({
+      webhookUrl: 'https://aurizonbot.app.n8n.cloud/webhook/9ffd1d1a-1eb2-4f9b-83c6-3f269dcbc420/chat',
+      initialMessages: [
+        'اهلا بيك في XD STORE',
+        'تحب اساعدك ازاي؟'
+      ],
+      i18n: {
+        en: {
+          title: 'WELCOME to XD STORE',
+          subtitle: "HOW CAN I HELP YOU?😊",
+          footer: "Start a chat. We’re here to help you 24/7.",
+          getStarted: "New Conversation",
+          inputPlaceholder: "Type your question..",
+        },
+      },
+      mode: 'window',
+      target: 'body',
+      chatWindowOptions: {
+        title: 'XD STORE SUPPORT',
+        welcomeMessage: 'Welcome to XD Store! How can we help you today?',
+        width: 400,
+        height: 600
+      }
+    });
+  
+    // Add a single style block to control the trigger and hide the chat overlay until opened
+    setTimeout(() => {
+      const style = document.createElement('style');
+      style.textContent = `
+        /* Position the trigger bottom right */
+        [data-chat-trigger] {
+          position: fixed !important;
+          right: 24px !important;
+          bottom: 24px !important;
+          width: 64px !important;
+          height: 64px !important;
+          border-radius: 50% !important;
+          background: #000 !important;
+          color: #fff !important;
+          border: 2px solid #000 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          cursor: pointer !important;
+          z-index: 9999 !important;
+        }
+  
+        /* Don’t show the overlay (the chat window/backdrop) until the user clicks */
+        [data-chat][data-state="closed"] .chat-wrapper,
+        [data-chat][data-state="closed"] .chat-window,
+        [data-chat][data-state="closed"] .chat-backdrop {
+          display: none !important;
+        }
+  
+        /* Square off the window and give it a border when it opens */
+        .chat-window {
+          border: 2px solid #000 !important;
+          border-radius: 0 !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }, 500);
+  </script>
+  
     
-      createChat({
-        webhookUrl: 'https://aurizonbot.app.n8n.cloud/webhook/9ffd1d1a-1eb2-4f9b-83c6-3f269dcbc420/chat',
-        initialMessages: [
-		' اهلا بيك في XD STORE',
-		'تحب اساعدك ازاي؟'
-	],
-    i18n: {
-		en: {
-			title: 'WELCOME to XD STORE',
-			subtitle: "HOW CAN I HELP YOU?😍",
-			footer: 'Start a chat. We\'re here to help you 24/7.',
-			getStarted: 'New Conversation',
-			inputPlaceholder: 'Type your question..',
-		},
-	},
-      });
-    </script>
 </body>
 </html>
