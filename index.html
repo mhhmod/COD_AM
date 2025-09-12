@@ -547,186 +547,201 @@
 
 <style>
     /* N8N Chat Widget - Flagship Black & White Styling */
- /* N8N Chat Widget — Pure Black & White, Symmetric, Fast, Pixel-Crisp */
-/* No colors, no gradients, no shadows, no animations — just #000 and #fff */
-
-/* Typography: use Google Sans if present on the page, else system fallback */
-.n8n-chat,
-div[data-n8n-chat] {
-  font-family: "Google Sans", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, sans-serif !important;
-  line-height: 1.6 !important;
-  color: #000 !important;
-  background: #fff !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  text-rendering: optimizeLegibility !important;
-}
-
-/* Root size and spacing */
+ /* N8N Chat Widget — Ultra-Modern, Symmetric, Black & White, Google Sans */
 :root {
   --bw-black: #000 !important;
   --bw-white: #fff !important;
-  --bw-radius: 12px !important;
-  --bw-space: 16px !important;
+  --bw-radius: 18px !important;
+  --bw-space: 20px !important;
   --bw-window-w: 420px !important;
   --bw-window-h: 640px !important;
+  --bw-border: 2px solid var(--bw-black) !important;
+  --bw-shadow: 0 4px 32px rgba(0,0,0,0.10) !important;
 }
 
-/* Container */
+.n8n-chat,
+div[data-n8n-chat] {
+  font-family: "Google Sans", "Roboto", "Segoe UI", system-ui, -apple-system, Ubuntu, Cantarell, sans-serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+  color: var(--bw-black) !important;
+  background: var(--bw-white) !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+  letter-spacing: 0.01em !important;
+}
+
 .n8n-chat,
 div[data-n8n-chat],
 div[data-n8n-chat] .chat-container {
   background: var(--bw-white) !important;
-  border: 1px solid var(--bw-black) !important;
-  border-radius: var(--bw-radius) !important;
+  border: var(--bw-border);
+  border-radius: var(--bw-radius);
   overflow: hidden !important;
-  box-shadow: none !important;
+  box-shadow: var(--bw-shadow);
 }
 
-/* Window */
 .n8n-chat .n8n-chat-window,
 div[data-n8n-chat] .chat-window {
-  width: var(--bw-window-w) !important;
-  height: var(--bw-window-h) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  background: var(--bw-white) !important;
-  border: none !important;
-  border-radius: var(--bw-radius) !important;
-  overflow: hidden !important;
+  width: var(--bw-window-w);
+  height: var(--bw-window-h);
+  display: flex;
+  flex-direction: column;
+  background: var(--bw-white);
+  border: none;
+  border-radius: var(--bw-radius);
+  overflow: hidden;
+  box-shadow: var(--bw-shadow);
 }
 
-/* Header — pure black */
 .n8n-chat .n8n-chat-header,
 div[data-n8n-chat] .chat-header {
-  min-height: 72px !important;
-  padding: var(--bw-space) !important;
-  background: var(--bw-black) !important;
-  background-image: none !important;
-  color: var(--bw-white) !important;
-  border-bottom: 1px solid var(--bw-white) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
+  min-height: 80px;
+  padding: var(--bw-space) var(--bw-space) 12px var(--bw-space);
+  background: var(--bw-black);
+  color: var(--bw-white);
+  border-bottom: var(--bw-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: var(--bw-radius) var(--bw-radius) 0 0;
+  box-shadow: none;
 }
 .n8n-chat .n8n-chat-header h1,
 .n8n-chat .n8n-chat-header-title,
 div[data-n8n-chat] .chat-header h1,
 div[data-n8n-chat] .chat-header-title {
-  margin: 0 0 4px 0 !important;
-  color: var(--bw-white) !important;
-  font-weight: 600 !important;
+  margin: 0 0 2px 0;
+  color: var(--bw-white);
+  font-weight: 700;
+  font-size: 1.35em;
+  letter-spacing: 0.01em;
 }
 .n8n-chat .n8n-chat-header p,
 .n8n-chat .n8n-chat-header-subtitle,
 div[data-n8n-chat] .chat-header p,
 div[data-n8n-chat] .chat-header-subtitle {
-  margin: 0 !important;
-  color: var(--bw-white) !important;
+  margin: 0;
+  color: var(--bw-white);
+  opacity: 0.85;
+  font-size: 1em;
+  font-weight: 400;
 }
 
-/* Messages area */
 .n8n-chat .n8n-chat-messages,
 div[data-n8n-chat] .chat-messages {
-  flex: 1 !important;
-  padding: var(--bw-space) !important;
-  background: var(--bw-white) !important;
-  overflow-y: auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 12px !important;
+  flex: 1;
+  padding: var(--bw-space) var(--bw-space) 0 var(--bw-space);
+  background: var(--bw-white);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bw-black) var(--bw-white);
 }
+.n8n-chat .n8n-chat-messages::-webkit-scrollbar,
+div[data-n8n-chat] .chat-messages::-webkit-scrollbar { width: 8px; }
+.n8n-chat .n8n-chat-messages::-webkit-scrollbar-track,
+div[data-n8n-chat] .chat-messages::-webkit-scrollbar-track { background: var(--bw-white); }
+.n8n-chat .n8n-chat-messages::-webkit-scrollbar-thumb,
+div[data-n8n-chat] .chat-messages::-webkit-scrollbar-thumb { background: var(--bw-black); border-radius: 8px; }
 
-/* Message bubbles (bot/user symmetrical) */
 .n8n-chat .n8n-chat-message,
 div[data-n8n-chat] .chat-message {
-  margin: 0 !important;
-  padding: 14px 18px !important;
-  max-width: 84% !important;
-  border-radius: var(--bw-radius) !important;
-  word-wrap: break-word !important;
-  font-size: 0.95rem !important;
-  line-height: 1.6 !important;
-  border: 1px solid var(--bw-black) !important;
-  background: var(--bw-white) !important;
-  color: var(--bw-black) !important;
+  margin: 0;
+  padding: 16px 22px;
+  max-width: 80%;
+  border-radius: var(--bw-radius);
+  word-break: break-word;
+  font-size: 1.05em;
+  line-height: 1.7;
+  border: var(--bw-border);
+  background: var(--bw-white);
+  color: var(--bw-black);
+  box-shadow: none;
+  transition: background 0.2s;
 }
 .n8n-chat .n8n-chat-message.user,
 div[data-n8n-chat] .chat-message.user {
-  background: var(--bw-black) !important;
-  color: var(--bw-white) !important;
-  align-self: flex-end !important;
-  border: 1px solid var(--bw-black) !important;
+  background: var(--bw-black);
+  color: var(--bw-white);
+  align-self: flex-end;
+  border: var(--bw-border);
 }
 .n8n-chat .n8n-chat-message.bot,
 .n8n-chat .n8n-chat-message.assistant,
 div[data-n8n-chat] .chat-message.bot,
 div[data-n8n-chat] .chat-message.assistant {
-  align-self: flex-start !important;
+  align-self: flex-start;
 }
 
-/* Typing indicator (same as bot bubble) */
 .n8n-chat .n8n-chat-typing,
 div[data-n8n-chat] .chat-typing {
-  margin: 0 !important;
-  max-width: 84% !important;
-  align-self: flex-start !important;
-  padding: 14px 18px !important;
-  border-radius: var(--bw-radius) !important;
-  background: var(--bw-white) !important;
-  color: var(--bw-black) !important;
-  border: 1px solid var(--bw-black) !important;
+  margin: 0;
+  max-width: 80%;
+  align-self: flex-start;
+  padding: 16px 22px;
+  border-radius: var(--bw-radius);
+  background: var(--bw-white);
+  color: var(--bw-black);
+  border: var(--bw-border);
 }
 
-/* Typing bar — no hidden layers, perfect alignment */
 .n8n-chat .n8n-chat-input-wrapper,
 div[data-n8n-chat] .chat-input-wrapper {
-  background: var(--bw-white) !important;
-  border-top: 1px solid var(--bw-black) !important;
-  padding: var(--bw-space) !important;
-  display: flex !important;
-  gap: 8px !important;
-  align-items: center !important;
+  background: var(--bw-white);
+  border-top: var(--bw-border);
+  padding: var(--bw-space);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-radius: 0 0 var(--bw-radius) var(--bw-radius);
 }
+
 .n8n-chat .n8n-chat-input,
 div[data-n8n-chat] .chat-input,
 div[data-n8n-chat] input[type="text"],
 div[data-n8n-chat] textarea {
-  flex: 1 !important;
-  height: 44px !important;
-  border: 1px solid var(--bw-black) !important;
-  border-radius: var(--bw-radius) !important;
-  padding: 10px 14px !important;
-  background: var(--bw-white) !important;
-  color: var(--bw-black) !important;
-  outline: none !important;
-  resize: none !important;
-  box-shadow: none !important;
+  flex: 1;
+  height: 48px;
+  border: var(--bw-border);
+  border-radius: var(--bw-radius);
+  padding: 12px 16px;
+  background: var(--bw-white);
+  color: var(--bw-black);
+  outline: none;
+  resize: none;
+  box-shadow: none;
+  font-size: 1em;
+  font-family: inherit;
 }
 .n8n-chat .n8n-chat-input::placeholder,
 div[data-n8n-chat] .chat-input::placeholder,
 div[data-n8n-chat] input[type="text"]::placeholder,
 div[data-n8n-chat] textarea::placeholder {
-  color: var(--bw-black) !important;
-  opacity: 0.6 !important; /* still black, visually softer */
+  color: var(--bw-black);
+  opacity: 0.5;
 }
 
-/* Send button — force black/white and SVG fills */
 .n8n-chat .n8n-chat-send-button,
 div[data-n8n-chat] .chat-send-button,
 div[data-n8n-chat] button[type="submit"] {
-  width: 44px !important;
-  height: 44px !important;
-  background: var(--bw-black) !important;
-  color: var(--bw-white) !important;
-  border: 1px solid var(--bw-black) !important;
-  border-radius: var(--bw-radius) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  box-shadow: none !important;
-  background-image: none !important;
+  width: 48px;
+  height: 48px;
+  background: var(--bw-black);
+  color: var(--bw-white);
+  border: var(--bw-border);
+  border-radius: var(--bw-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: none;
+  background-image: none;
+  transition: background 0.2s;
 }
 div[data-n8n-chat] .chat-send-button *,
 div[data-n8n-chat] .chat-send-button svg,
@@ -739,17 +754,26 @@ div[data-n8n-chat] button[type="submit"] path {
   stroke: var(--bw-white) !important;
 }
 
-/* Launcher / toggle — force override any theme colors (kills pink) */
+/* Toggle (launcher) — perfect circle, high contrast, no shadow */
 .n8n-chat .n8n-chat-toggle,
 div[data-n8n-chat] button[data-n8n-chat="toggle"] {
-  width: 56px !important;
-  height: 56px !important;
-  background: var(--bw-black) !important;
-  background-image: none !important;
-  color: var(--bw-white) !important;
-  border: 1px solid var(--bw-black) !important;
-  border-radius: var(--bw-radius) !important;
-  box-shadow: none !important;
+  width: 60px;
+  height: 60px;
+  background: var(--bw-black);
+  color: var(--bw-white);
+  border: var(--bw-border);
+  border-radius: 50%;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+div[data-n8n-chat] button[data-n8n-chat="toggle"]:hover {
+  background: #222 !important;
+}
+div[data-n8n-chat] button[data-n8n-chat="toggle"]:active {
+  background: #444 !important;
 }
 div[data-n8n-chat] button[data-n8n-chat="toggle"] *,
 div[data-n8n-chat] button[data-n8n-chat="toggle"] svg,
@@ -759,16 +783,7 @@ div[data-n8n-chat] button[data-n8n-chat="toggle"] path {
   stroke: var(--bw-white) !important;
 }
 
-/* Scrollbar — pure B/W */
-.n8n-chat .n8n-chat-messages { scrollbar-width: thin !important; scrollbar-color: var(--bw-black) var(--bw-white) !important; }
-.n8n-chat .n8n-chat-messages::-webkit-scrollbar,
-div[data-n8n-chat] .chat-messages::-webkit-scrollbar { width: 6px !important; }
-.n8n-chat .n8n-chat-messages::-webkit-scrollbar-track,
-div[data-n8n-chat] .chat-messages::-webkit-scrollbar-track { background: var(--bw-white) !important; }
-.n8n-chat .n8n-chat-messages::-webkit-scrollbar-thumb,
-div[data-n8n-chat] .chat-messages::-webkit-scrollbar-thumb { background: var(--bw-black) !important; }
-
-/* Focus */
+/* Focus ring for accessibility */
 .n8n-chat *:focus-visible,
 div[data-n8n-chat] *:focus-visible {
   outline: 2px solid var(--bw-black) !important;
@@ -785,12 +800,13 @@ div[data-n8n-chat] *:focus-visible {
   }
 }
 
-/* Final hard enforcement: remove any leftover colors/shadows */
-div[data-n8n-chat] * {
+/* Remove all shadows and color leaks */
+div[data-n8n-chat] *,
+.n8n-chat * {
   box-shadow: none !important;
   text-shadow: none !important;
+  background-image: none !important;
 }
-
 </style>
 </head>
 <body>
