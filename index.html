@@ -534,6 +534,201 @@
             100% { transform: rotate(360deg); }
         }
     </style>
+    @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+<style>
+    /* N8N Chat Widget - Flagship Black & White Styling */
+    :root {
+        --chat--color-primary: #000000;
+        --chat--color-primary-shade-50: #1a1a1a;
+        --chat--color-primary-shade-100: #333333;
+        --chat--color-secondary: #ffffff;
+        --chat--color-secondary-shade-50: #f8f8f8;
+        --chat--color-white: #ffffff;
+        --chat--color-light: #ffffff;
+        --chat--color-light-shade-50: #f5f5f5;
+        --chat--color-light-shade-100: #eeeeee;
+        --chat--color-medium: #666666;
+        --chat--color-dark: #000000;
+        --chat--color-disabled: #999999;
+        --chat--color-typing: #333333;
+        --chat--spacing: 1.2rem;
+        --chat--border-radius: 0;
+        --chat--transition-duration: 0.3s;
+        --chat--window--width: 420px;
+        --chat--window--height: 650px;
+        --chat--header-height: auto;
+        --chat--header--padding: 1.5rem 1.2rem;
+        --chat--header--background: #000000;
+        --chat--header--color: #ffffff;
+        --chat--header--border-top: none;
+        --chat--header--border-bottom: 2px solid #ffffff;
+        --chat--heading--font-size: 1.4rem;
+        --chat--subtitle--font-size: 0.9rem;
+        --chat--subtitle--line-height: 1.6;
+        --chat--textarea--height: 60px;
+        --chat--message--font-size: 0.95rem;
+        --chat--message--padding: 1rem 1.2rem;
+        --chat--message--border-radius: 0;
+        --chat--message-line-height: 1.6;
+        --chat--message--bot--background: #ffffff;
+        --chat--message--bot--color: #000000;
+        --chat--message--bot--border: 2px solid #000000;
+        --chat--message--user--background: #000000;
+        --chat--message--user--color: #ffffff;
+        --chat--message--user--border: 2px solid #000000;
+        --chat--message--pre--background: #f5f5f5;
+        --chat--toggle--background: #000000;
+        --chat--toggle--hover--background: #333333;
+        --chat--toggle--active--background: #1a1a1a;
+        --chat--toggle--color: #ffffff;
+        --chat--toggle--size: 70px;
+    }
+
+    /* Custom Chat Widget Overrides */
+    .n8n-chat {
+        font-family: 'Roboto', sans-serif !important;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+        border: 3px solid #000000 !important;
+    }
+
+    .n8n-chat .n8n-chat-toggle {
+        border: 3px solid #000000 !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .n8n-chat .n8n-chat-toggle:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .n8n-chat .n8n-chat-window {
+        border: 3px solid #000000 !important;
+    }
+
+    .n8n-chat .n8n-chat-header {
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+    }
+
+    .n8n-chat .n8n-chat-header-title {
+        font-size: 1.2rem !important;
+        font-weight: 700 !important;
+    }
+
+    .n8n-chat .n8n-chat-header-subtitle {
+        font-weight: 400 !important;
+        opacity: 0.9 !important;
+    }
+
+    .n8n-chat .n8n-chat-messages {
+        padding: 1.5rem 1.2rem !important;
+    }
+
+    .n8n-chat .n8n-chat-message {
+        margin-bottom: 1.2rem !important;
+        border: 2px solid #000000 !important;
+        font-weight: 500 !important;
+    }
+
+    .n8n-chat .n8n-chat-message.user {
+        margin-left: 2rem !important;
+    }
+
+    .n8n-chat .n8n-chat-message.bot {
+        margin-right: 2rem !important;
+    }
+
+    .n8n-chat .n8n-chat-input-wrapper {
+        border-top: 2px solid #000000 !important;
+        padding: 1.2rem !important;
+    }
+
+    .n8n-chat .n8n-chat-input {
+        border: 2px solid #000000 !important;
+        padding: 12px 16px !important;
+        font-weight: 500 !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .n8n-chat .n8n-chat-input:focus {
+        transform: translateY(-1px) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .n8n-chat .n8n-chat-send-button {
+        background: #000000 !important;
+        border: 2px solid #000000 !important;
+        color: #ffffff !important;
+        transition: all 0.3s ease !important;
+        font-weight: 700 !important;
+    }
+
+    .n8n-chat .n8n-chat-send-button:hover {
+        background: #ffffff !important;
+        color: #000000 !important;
+        transform: translateY(-1px) !important;
+    }
+
+    .n8n-chat .n8n-chat-footer {
+        border-top: 1px solid #000000 !important;
+        color: #666666 !important;
+        font-size: 0.8rem !important;
+        text-align: center !important;
+        padding: 0.8rem !important;
+    }
+
+    /* Scrollbar Styling */
+    .n8n-chat .n8n-chat-messages::-webkit-scrollbar {
+        width: 6px !important;
+    }
+
+    .n8n-chat .n8n-chat-messages::-webkit-scrollbar-track {
+        background: #f5f5f5 !important;
+    }
+
+    .n8n-chat .n8n-chat-messages::-webkit-scrollbar-thumb {
+        background: #000000 !important;
+        border-radius: 0 !important;
+    }
+
+    .n8n-chat .n8n-chat-messages::-webkit-scrollbar-thumb:hover {
+        background: #333333 !important;
+    }
+
+    /* Animation for new messages */
+    .n8n-chat .n8n-chat-message {
+        animation: slideInMessage 0.3s ease-out !important;
+    }
+
+    @keyframes slideInMessage {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Toggle button icon styling */
+    .n8n-chat .n8n-chat-toggle svg {
+        width: 28px !important;
+        height: 28px !important;
+    }
+</style>
 </head>
 <body>
     <!-- Header -->
